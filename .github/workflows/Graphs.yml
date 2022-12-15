@@ -51,8 +51,8 @@ jobs:
       - name: Test
         run: |
           cd ${{ github.workspace }}/build/Tests/
-          chmod 777 GRAPHS_tests
-          ./GRAPHS_tests
+          chmod 777 Graphs_tests
+          ./Graphs_tests
 
       - name: Coverage
         run: |
@@ -84,5 +84,5 @@ jobs:
 
       - name: valgrind
         run: |
-          chmod 777 ${{github.workspace}}/build/Tests/GRAPHS_tests
-          valgrind --tool=memcheck --leak-check=yes ${{github.workspace}}/build/Tests/GRAPHS_tests
+          chmod 777 ${{github.workspace}}/build/Tests/Graphs_tests
+          valgrind --tool=memcheck --leak-check=yes ${{github.workspace}}/build/Tests/Graphs_tests
