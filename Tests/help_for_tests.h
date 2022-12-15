@@ -9,4 +9,3 @@
 #include "InternalEntities.h"
 
 #include <gtest/gtest.h>
-

@@ -23,7 +23,6 @@ private:
 };
 
 MatrixGraph::MatrixGraph(const size_t &size) : adjacencyMatrix(size * size), verticesCount(size) {
-
 }
 
 MatrixGraph::MatrixGraph(const IGraph &graph) : adjacencyMatrix(graph.VerticesCount() * graph.VerticesCount()),

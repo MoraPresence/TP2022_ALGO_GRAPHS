@@ -5,7 +5,6 @@
 
 #include "IGraph.h"
 
-
 struct ListGraph : public IGraph<size_t> {
 public:
     explicit ListGraph(const size_t &size);
