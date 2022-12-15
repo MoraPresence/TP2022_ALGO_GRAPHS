@@ -10,7 +10,6 @@ env:
 jobs:
 
   build-project:
-    needs: [ cpplint,  cppcheck]
 
     runs-on: ubuntu-latest
     container: morapresence/mond_db_debug
