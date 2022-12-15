@@ -1,7 +1,7 @@
-# TP2022_CPP_SET
+# TP2022_ALGO_GRAPHS
 [![CMake](https://github.com/MoraPresence/TP2022_ALGO_GRAPHS/actions/workflows/GRAPHS.yml/badge.svg)](https://github.com/MoraPresence/TP2022_CPP_SET/actions/workflows/RBTree.yml)
-Задача 1. «Представление графа».(5 баллов)
-Обязательная задача
+## Задача 1. «Представление графа».(5 баллов)
+### Обязательная задача
 Дан базовый интерфейс для представления ориентированного графа:
 struct IGraph {
 virtual ~IGraph() {}

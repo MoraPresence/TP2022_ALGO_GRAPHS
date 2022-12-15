@@ -8,15 +8,11 @@
 class MatrixGraph : public IGraph<size_t> {
 public:
     explicit MatrixGraph(const size_t &size);
-
     explicit MatrixGraph(const IGraph &graph);
 
     void AddEdge(size_t from, size_t to) override;
-
     [[nodiscard]] size_t VerticesCount() const override;
-
     [[nodiscard]] std::vector<size_t> GetNextVertices(size_t vertex) const override;
-
     [[nodiscard]] std::vector<size_t> GetPrevVertices(size_t vertex) const override;
 
     ~MatrixGraph() override = default;
@@ -40,6 +36,8 @@ MatrixGraph::MatrixGraph(const IGraph &graph) : adjacencyMatrix(graph.VerticesCo
 }
 
 void MatrixGraph::AddEdge(size_t from, size_t to) {
+    assert(from >= 0 && from < verticesCount);
+    assert(to >= 0 && to < verticesCount);
     adjacencyMatrix[from * verticesCount + to] = true;
 }
 
@@ -48,6 +46,7 @@ size_t MatrixGraph::VerticesCount() const {
 }
 
 std::vector<size_t> MatrixGraph::GetNextVertices(size_t vertex) const {
+    assert(vertex >= 0 && vertex < verticesCount);
     std::vector<size_t> nextVertices;
     for (size_t i = 0; i < verticesCount; ++i) {
         if (adjacencyMatrix[vertex * verticesCount + i]) {
@@ -58,6 +57,7 @@ std::vector<size_t> MatrixGraph::GetNextVertices(size_t vertex) const {
 }
 
 std::vector<size_t> MatrixGraph::GetPrevVertices(size_t vertex) const {
+    assert(vertex >= 0 && vertex < verticesCount);
     std::vector<size_t> prevVertices;
     for (size_t i = 0; i < verticesCount; i++) {
         if (adjacencyMatrix[i * verticesCount + vertex]) {

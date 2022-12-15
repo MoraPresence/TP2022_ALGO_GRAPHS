@@ -94,121 +94,130 @@ protected:
 };
 
 TEST_F(GraphConstructors_Tests, ArcGraph_to_ListGraph) {
-    ListGraph new_list_graph(*arc_graph);
+    ListGraph new_graph(*arc_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_list_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), arc_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, ArcGraph_to_MatrixGraph) {
-    MatrixGraph new_list_graph(*arc_graph);
+    MatrixGraph new_graph(*arc_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_matrix_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), arc_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, ArcGraph_to_SetGraph) {
-    SetGraph new_list_graph(*arc_graph);
+    SetGraph new_graph(*arc_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_set_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), arc_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, ListGraph_to_ArcGraph) {
-    ArcGraph new_list_graph(*list_graph);
+    ArcGraph new_graph(*list_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_arc_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), list_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, ListGraph_to_MatrixGraph) {
-    MatrixGraph new_list_graph(*list_graph);
+    MatrixGraph new_graph(*list_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_matrix_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), list_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, ListGraph_to_SetGraph) {
-    SetGraph new_list_graph(*list_graph);
+    SetGraph new_graph(*list_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_set_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), list_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, MatrixGraph_to_ArcGraph) {
-    ArcGraph new_list_graph(*matrix_graph);
+    ArcGraph new_graph(*matrix_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_arc_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), matrix_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, MatrixGraph_to_ListGraph) {
-    ListGraph new_list_graph(*matrix_graph);
+    ListGraph new_graph(*matrix_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_list_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), matrix_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, MatrixGraph_to_SetGraph) {
-    SetGraph new_list_graph(*matrix_graph);
+    SetGraph new_graph(*matrix_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
     EXPECT_TRUE(result == BFS_set_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), matrix_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, SetGraph_to_ArcGraph) {
-    ArcGraph new_list_graph(*set_graph);
+    ArcGraph new_graph(*set_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
-    EXPECT_TRUE(result == BFS_arc_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), set_graph->VerticesCount());
 }
 
 TEST_F(GraphConstructors_Tests, SetGraph_to_ListGraph) {
-    ListGraph new_list_graph(*set_graph);
+    ListGraph new_graph(*set_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
-    EXPECT_TRUE(result == BFS_list_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), set_graph->VerticesCount());
 }
 
-TEST_F(GraphConstructors_Tests, SetGraph_to_SetGraph) {
-    MatrixGraph new_list_graph(*set_graph);
+TEST_F(GraphConstructors_Tests, SetGraph_to_MatrixGraph) {
+    MatrixGraph new_graph(*set_graph);
 
     std::vector<size_t> result;
-    mainBFS(new_list_graph,
+    mainBFS(new_graph,
             [&result](size_t vertex) { result.push_back(vertex); });
 
-    EXPECT_TRUE(result == BFS_matrix_graph);
+    EXPECT_EQ(new_graph.VerticesCount(), set_graph->VerticesCount());
 }

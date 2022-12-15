@@ -8,17 +8,12 @@
 class ArcGraph : public IGraph<size_t> {
 public:
     explicit ArcGraph(const size_t &size);
-
     explicit ArcGraph(const IGraph &graph);
 
     void AddEdge(size_t from, size_t to) override;
-
     [[nodiscard]] size_t VerticesCount() const override;
-
     [[nodiscard]] std::vector<size_t> GetNextVertices(size_t vertex) const override;
-
     [[nodiscard]] std::vector<size_t> GetPrevVertices(size_t vertex) const override;
-
     ~ArcGraph() override = default;
 
 private:
@@ -38,6 +33,8 @@ ArcGraph::ArcGraph(const IGraph &graph) : verticesCount(graph.VerticesCount()) {
 }
 
 void ArcGraph::AddEdge(size_t from, size_t to) {
+    assert(from >= 0 && from < verticesCount);
+    assert(to >= 0 && to < verticesCount);
     pair_graph.emplace_back(from, to);
 }
 
@@ -46,6 +43,7 @@ size_t ArcGraph::VerticesCount() const {
 }
 
 std::vector<size_t> ArcGraph::GetNextVertices(size_t vertex) const {
+    assert(vertex >= 0 && vertex < verticesCount);
     std::vector<size_t> nextVertices;
     for (auto &it: pair_graph) {
         if (it.first == vertex) {
@@ -56,6 +54,7 @@ std::vector<size_t> ArcGraph::GetNextVertices(size_t vertex) const {
 }
 
 std::vector<size_t> ArcGraph::GetPrevVertices(size_t vertex) const {
+    assert(vertex >= 0 && vertex < verticesCount);
     std::vector<size_t> prevVertices;
     for (auto &it: pair_graph) {
         if (it.second == vertex) {

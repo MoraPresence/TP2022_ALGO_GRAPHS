@@ -8,29 +8,6 @@ env:
   BUILD_TYPE: Debug
 
 jobs:
-  cppcheck:
-    runs-on: ubuntu-latest
-    container: morapresence/mond_db_tests
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: run_cppcheck
-        run: bash scripts/linters/linters.sh --cppcheck ./Tests/*.h
-
-      - name: run_cppcheck
-        run: bash scripts/linters/linters.sh --cppcheck ./Tests/*.h
-
-  cpplint:
-    runs-on: ubuntu-latest
-    container: morapresence/mond_db_tests
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: run_cpplint
-        run: bash scripts/linters/linters.sh --cpplint ./Set/*.h
-
-      - name: run_cpplint
-        run: bash scripts/linters/linters.sh --cpplint ./RBTree/*.h
 
   build-project:
     needs: [ cpplint,  cppcheck]
@@ -75,8 +52,8 @@ jobs:
       - name: Test
         run: |
           cd ${{ github.workspace }}/build/Tests/
-          chmod 777 SET_tests
-          ./SET_tests
+          chmod 777 GRAPHS_tests
+          ./GRAPHS_tests
 
       - name: Coverage
         run: |
@@ -108,5 +85,5 @@ jobs:
 
       - name: valgrind
         run: |
-          chmod 777 ${{github.workspace}}/build/Tests/SET_tests
-          valgrind --tool=memcheck --leak-check=yes ${{github.workspace}}/build/Tests/SET_tests
+          chmod 777 ${{github.workspace}}/build/Tests/GRAPHS_tests
+          valgrind --tool=memcheck --leak-check=yes ${{github.workspace}}/build/Tests/GRAPHS_tests
